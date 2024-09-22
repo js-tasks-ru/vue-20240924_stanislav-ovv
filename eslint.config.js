@@ -17,6 +17,7 @@ export default [
 			"no-useless-escape":"off",
 			"indent": ["error", "tab", { "SwitchCase": 1, "MemberExpression": 1 }],
 			"no-empty": "off",
+			semi: "error",
 
 			// vue
 			"vue/component-definition-name-casing": ["error", "PascalCase" | "kebab-case"],
