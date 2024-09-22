@@ -11,11 +11,15 @@ export default [
 		rules: {
 			// Здесь вы можете переопределять правила по своему усмотрению
 			"no-unused-vars": "warn",
+			"@typescript-eslint/no-unused-vars": "warn",
 			"no-undef": "warn",
 			"no-unsafe-optional-chaining": "warn",
 			"no-useless-escape":"off",
 			"indent": ["error", "tab", { "SwitchCase": 1, "MemberExpression": 1 }],
-			"no-empty": "off"
+			"no-empty": "off",
+
+			// vue
+			"vue/component-definition-name-casing": ["error", "PascalCase" | "kebab-case"],
 		}
 	}
 ]
