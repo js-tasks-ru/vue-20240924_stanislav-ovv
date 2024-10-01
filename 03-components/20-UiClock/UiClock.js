@@ -1,9 +1,22 @@
-import { defineComponent } from 'vue'
+import { defineComponent, ref, onUnmounted } from 'vue'
 
 export default defineComponent({
-  name: 'UiClock',
+	name: 'UiClock',
+	setup() {
+		const formatTime = ref(new Date().toLocaleTimeString(navigator.language, { timeStyle: 'medium' }));
+		let timer;
 
-  setup() {},
+		playTimer();
+		function playTimer(){
+			timer = setInterval(()=>{
+				formatTime.value = new Date().toLocaleTimeString(navigator.language, { timeStyle: 'medium' });
+			}, 1000);
+		}
 
-  template: `<div class="clock">10:12:02</div>`,
+		onUnmounted(()=>{
+			clearInterval(timer);
+		});
+		return { formatTime };
+	},
+	template: `<div class="clock">{{ formatTime }}</div>`,
 })
